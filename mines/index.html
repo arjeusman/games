@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	<title>Mines</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<audio id="sound"></audio>
+	<audio id="background"></audio>
+
+	<div class="wrapper">
+
+		<div class="topInfo">
+			<h1 id="player"></h1>
+			<div class="diamonds">
+				<span id="strike">&times;0</span>
+			</div>
+		</div>
+
+		<textarea placeholder="Write or paste names" oninput="setNames(); playBackground('tick');" id="names"></textarea>
+		<div class="game" id="game"></div>
+		<div class="names" id="nameList"></div>
+
+	</div>
+
+	<script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
