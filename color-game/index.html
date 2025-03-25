@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<title>Color Game</title>
+	<link rel="stylesheet" type="text/css" href="scripts/style.css">
+	<link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+
+	<div id="money">0</div>
+	<audio id="sound"></audio>
+	<div id="result" style="display: none;"></div>
+	<div class="credits">Developed with <span style="color: red">❤️</span> by Luffytaro.</div>
+
+
+	<div class="game">
+
+		<div id="indicators" class="indicators">
+			<div id="color1"></div>
+			<div id="color2"></div>
+			<div id="color3"></div>
+		</div>
+
+		<div class="colors">
+			<input type="button" style="background: #B8001F;" value="" onclick="dropBet(this)">
+			<input type="button" style="background: #00712D;" value="" onclick="dropBet(this)"/>
+			<input type="button" style="background: #3FA2F6;" value="" onclick="dropBet(this)"/>
+			<input type="button" style="background: #F4CE14;" value="" onclick="dropBet(this)"/>
+			<input type="button" style="background: #DA7297;" value="" onclick="dropBet(this)"/>
+			<input type="button" style="background: #E76F51;" value="" onclick="dropBet(this)"/>
+		</div>
+
+		<fieldset class="coins">
+			<input id="bet1" type="radio" name="coin" checked onclick="minBet = 1">
+			<label class="coin" for="bet1">₱1</label>
+			<input id="bet5" type="radio" name="coin" onclick="minBet = 5">
+			<label class="coin" for="bet5">₱5</label>
+			<input id="bet10" type="radio" name="coin" onclick="minBet = 10">
+			<label class="coin" for="bet10">₱10</label>
+			<input id="bet20" type="radio" name="coin" onclick="minBet = 20">
+			<label class="coin" for="bet20">₱20</label>
+			<input id="bet50" type="radio" name="coin" onclick="minBet = 50">
+			<label class="coin" for="bet50">₱50</label>
+			<input id="bet100" type="radio" name="coin" onclick="minBet = 100">
+			<label class="coin" for="bet100">₱100</label>
+		</fieldset>
+
+
+		<div id="control" class="controls">
+			<button onclick="Play()" id="play" class="button">Play</button>
+			<button onclick="Reset()" id="reset" class="button">Reset</button>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="scripts/game.js"></script>
+
+</body>
+</html>
