@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<audio id="sound"></audio>
+	<audio id="background"></audio>
+	<audio id="character"></audio>
+
+	<div class="wrapper">
+
+		<textarea placeholder="Write or paste names" onchange="setNames()" id="names"></textarea>
+
+		<div class="game" id="game">
+			<div id="controls">
+				<div id="speed">
+					<button onclick="increaseSpeed(false)">&minus;</button>
+					<span>x1</span>
+					<button onclick="increaseSpeed()">&plus;</button>
+				</div>
+				<img id="logo" src="assets/logo.png">
+				<button class="button" onclick="Play(this.parentElement)">Play Game</button>
+			</div>
+		</div>
+
+		<div class="names" id="nameList"></div>
+
+	</div>
+
+	<script type="text/javascript" src="game.js"></script>
+
+</body>
+</html>
