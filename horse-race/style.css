@@ -1,0 +1,306 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+body {
+    font-size: 14px;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    background: #212a39;
+}
+
+.wrapper {
+    width: 800px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    transform: scale(1.5);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.game {
+    display: block;
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid #000;
+    background-color: #acacac;
+    background-image: url(sprite/background.jpg);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: contain;
+    transform-origin: left;
+    transition: all ease-in-out 2s;
+    left: 0%;
+}
+
+.game.parallax {
+    left: -100%;
+    transition: all ease-in-out 10s;
+}
+
+.game:before {
+    content: attr(data-name);
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+    line-height: 10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 0;
+}
+
+.game:after {
+    z-index: 2;
+    content: attr(data-name);
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+    line-height: 10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-image: url(sprite/flags.png);
+    background-repeat: no-repeat;
+    background-position: center 80%;
+    background-size: 40px;
+}
+
+/*horses*/
+
+.horse {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 64px;
+    height: 48px;
+    bottom: 10px;
+    left: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    animation: idle .5s steps(3) infinite;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.horse.run:before {
+    z-index: 1;
+    font-size: 6px;
+    content: attr(name);
+    display: inline-block;
+    width: auto;
+    height: 10px;
+    text-align: right;
+    line-height: 10px;
+    position: absolute;
+    right: 10px;
+    top: calc(0% - 10px);
+    text-wrap: nowrap;
+    text-transform: uppercase;
+    background: #fff;
+    padding: 0px 5px;
+    border-radius: 2px;
+}
+
+.horse.run {
+    animation: run .3s steps(6) infinite;
+    transition: left linear .3s;
+}
+
+.horse.stop {
+    animation: stop .5s steps(8) 1;
+    transition: left linear .2s;
+}
+
+.horse1 { background-image: url('sprite/idle/horse1.png'); }
+.horse1.run { background-image: url('sprite/run/horse1.png'); }
+.horse1.stop { background-image: url('sprite/stop/horse1.png'); }
+
+.horse2 { background-image: url('sprite/idle/horse2.png'); }
+.horse2.run { background-image: url('sprite/run/horse2.png'); }
+.horse2.stop { background-image: url('sprite/stop/horse2.png'); }
+
+.horse3 { background-image: url('sprite/idle/horse3.png'); }
+.horse3.run { background-image: url('sprite/run/horse3.png'); }
+.horse3.stop { background-image: url('sprite/stop/horse3.png'); }
+
+.horse4 { background-image: url('sprite/idle/horse4.png'); }
+.horse4.run { background-image: url('sprite/run/horse4.png'); }
+.horse4.stop { background-image: url('sprite/stop/horse4.png'); }
+
+.horse5 { background-image: url('sprite/idle/horse5.png'); }
+.horse5.run { background-image: url('sprite/run/horse5.png'); }
+.horse5.stop { background-image: url('sprite/stop/horse5.png'); }
+
+.horse6 { background-image: url('sprite/idle/horse6.png'); }
+.horse6.run { background-image: url('sprite/run/horse6.png'); }
+.horse6.stop { background-image: url('sprite/stop/horse6.png'); }
+
+.horse7 { background-image: url('sprite/idle/horse7.png'); }
+.horse7.run { background-image: url('sprite/run/horse7.png'); }
+.horse7.stop { background-image: url('sprite/stop/horse7.png'); }
+
+.horse8 { background-image: url('sprite/idle/horse8.png'); }
+.horse8.run { background-image: url('sprite/run/horse8.png'); }
+.horse8.stop { background-image: url('sprite/stop/horse8.png'); }
+
+@keyframes run {
+  100% {
+    background-position: -384px;
+  }
+}
+
+@keyframes stop {
+  100% {
+    background-position: -512px;
+  }
+}
+
+@keyframes idle {
+  100% {
+    background-position: -192px;
+  }
+}
+
+/*result*/
+
+#result {
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#result .content {
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    padding: 0px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#result .content .box {
+    width: 400px;
+    min-height: 300px;
+    padding: 20px 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 3px solid rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+}
+
+#result h1 {
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+#result .flex {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+#result .flex .horse {
+    z-index: 999;
+    position: static;
+}
+
+#result .flex .horse:before,
+#result .flex .horse:after {
+    display: none;
+}
+
+#result .flex h2 {
+    color: #fafafa;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+#result .actions {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    grid-gap: 100px;
+    flex-flow: row;
+    flex-wrap: nowrap;
+}
+
+#result button {
+    color: #fff;
+    background: orangered;
+    border: 2px solid orangered;
+    font-size: 15px;
+    height: 40px;
+    padding: 0px 20px;
+    border: none;
+    border-radius: 25px;
+    transition: all ease .3s;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#result button:hover {
+    background: white;
+    color: #444;
+}
+
+/*controls*/
+
+#control {
+    z-index: 999;
+    position: fixed;
+    top: 50px;
+    left: calc(50% - width);
+    padding: 10px 10px;
+    display: flex;
+    flex-flow: column;
+    grid-gap: 5px;
+    align-items: flex-start;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 10px;
+}
+
+#control #list {
+    border: 1px solid #000;
+    width: 300px;
+    min-height: 100px;
+    padding: 10px 10px;
+}
+
+#list:hover {
+    outline: none !important;
+    border: 10px solid red;
+}
+
+#control button {
+    width: 100%;
+    padding: 8px 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all linear .5s;
+}

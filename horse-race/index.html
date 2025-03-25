@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="result" style="display: none;"></div>
+	<audio id="sound" loop></audio>
+
+	<div id="control">
+		<textarea id="list" placeholder=""></textarea>
+		<button id="set" onclick="deployHorses()">Deploy Horses</button>
+		<button id="start" onclick="Play()">Start race</button>
+	</div>
+
+	<div class="wrapper">
+		<div class="game" id="ground"></div>
+	</div>
+
+	<script type="text/javascript" src="game.js"></script>
+
+</body>
+</html>
